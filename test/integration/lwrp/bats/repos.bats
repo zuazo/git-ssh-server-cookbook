@@ -23,7 +23,7 @@
 
 @test "should be able to clone bare repositories" {
   cd /tmp && \
-  rm -rf repo1.git && \
+  rm -rf repo1 && \
   git clone /srv/git/repo1.git
 }
 

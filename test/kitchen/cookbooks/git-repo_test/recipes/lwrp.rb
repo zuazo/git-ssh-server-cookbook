@@ -23,3 +23,19 @@ git_repo_bare 'repo1'
 git_repo_bare 'repo2'
 git_repo_bare 'app3'
 
+git_repo_ssh_key 'me@foobar.com' do
+  key 'AAABBBCCC'
+  action :add
+end
+
+git_repo_ssh_key 'you@foobar.com' do
+  key 'DDDEEEFFF'
+  action :add
+end
+
+git_repo_ssh_key 'superboss' do
+  key 'GGGHHHIII'
+  keytype 'ssh-dsa'
+  action :add
+end
+
