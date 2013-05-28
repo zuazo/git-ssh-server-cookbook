@@ -48,6 +48,8 @@ template "#{node['git-repo']['base_path']}/README.md" do
   group node['git-repo']['group']
   mode '00640'
   variables(
+    :hostname => node['git-repo']['hostname'],
+    :user => node['git-repo']['user'],
     :base_path => node['git-repo']['base_path']
   )
 end
