@@ -1,0 +1,23 @@
+
+Create a New Repo
+=================
+
+Server Side
+-----------
+
+# su -s /bin/bash - git
+$ mkdir my-repo.git
+$ pushd my-repo.git
+$ git init --bare
+$ popd
+
+Client Side
+-----------
+
+$ cd my-repo
+$ git init
+$ git add .
+$ git commit --allow-empty -m 'Initial commit'
+$ git remote add origin ssh://git@git.onddo.com<%= @base_path %>/my-repo.git
+$ git push origin master
+
