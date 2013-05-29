@@ -8,3 +8,9 @@ version          "0.0.1"
 
 depends 'git'
 
+%w{ amazon arch centos debian fedora redhat scientific oracle amazon ubuntu windows }.each do |os|
+  supports os
+end
+
+supports "mac_os_x", ">= 10.6.0"
+
