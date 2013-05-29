@@ -17,8 +17,8 @@
 }
 
 @test "should grant privileges to the correct keys" {
-  egrep -q '^ssh-rsa\s+AAABBBCCC\s+me@foobar.com$' /srv/git/.ssh/authorized_keys
-  egrep -q '^ssh-rsa\s+DDDEEEFFF\s+you@foobar.com$' /srv/git/.ssh/authorized_keys
-  egrep -q '^ssh-dsa\s+GGGHHHIII\s+superboss$' /srv/git/.ssh/authorized_keys
+  egrep -q '^ssh-rsa[[:space:]]+AAABBBCCC[[:space:]]+me@foobar.com$' /srv/git/.ssh/authorized_keys
+  egrep -q '^ssh-rsa[[:space:]]+DDDEEEFFF[[:space:]]+you@foobar.com$' /srv/git/.ssh/authorized_keys
+  egrep -q '^ssh-dsa[[:space:]]+GGGHHHIII[[:space:]]+superboss$' /srv/git/.ssh/authorized_keys
 }
 
