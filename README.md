@@ -183,9 +183,9 @@ Testing
 
 ## Running the tests
 
-``bash
+```bash
 $ kitchen test
-``
+```
 
 Contributing
 ============
