@@ -43,6 +43,13 @@ directory node['git-repo']['base_path'] do
   recursive true
 end
 
+directory "#{node['git-repo']['base_path']}/git-shell-commands" do
+  owner node['git-repo']['user']
+  group node['git-repo']['group']
+  mode '00750'
+  recursive true
+end
+
 template "#{node['git-repo']['base_path']}/README.md" do
   owner node['git-repo']['user']
   group node['git-repo']['group']
