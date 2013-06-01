@@ -31,27 +31,27 @@ Attributes
     <td>Default</td>
   </tr>
   <tr>
-    <td><code>node['git-repo']['base_path']</code></td>
+    <td><code>node['git-ssh-server']['base_path']</code></td>
     <td>Git repository base path</td>
     <td><i>calculated</i></td>
   </tr>
   <tr>
-    <td><code>node['git-repo']['user']</code></td>
+    <td><code>node['git-ssh-server']['user']</code></td>
     <td>System user used to manage the repositories</td>
     <td><code>git</code></td>
   </tr>
   <tr>
-    <td><code>node['git-repo']['group']</code></td>
+    <td><code>node['git-ssh-server']['group']</code></td>
     <td>System group used to manage the repositories</td>
     <td><code>git</code></td>
   </tr>
   <tr>
-    <td><code>node['git-repo']['shell']</code></td>
+    <td><code>node['git-ssh-server']['shell']</code></td>
     <td>Git user shell</td>
     <td><code>/usr/bin/git-shell</code></td>
   </tr>
   <tr>
-    <td><code>node['git-repo']['hostname']</code></td>
+    <td><code>node['git-ssh-server']['hostname']</code></td>
     <td>Machine hostname, used only in the README template</td>
     <td><i>calculated</i></td>
   </tr>
@@ -60,22 +60,22 @@ Attributes
 Recipes
 =======
 
-## git-repo::default
+## git-ssh-server::default
 
 Configures a git repository container
 
 Resources
 =========
 
-## git_repo_bare[name]
+## git_ssh_server_bare[name]
 
 Creates a new bare repostiory.
 
-### git_repo_bare actions
+### git_ssh_server_bare actions
 
 * `create`: Creates a bare respository (default).
 
-### git_repo_bare attributes
+### git_ssh_server_bare attributes
 
 <table>
   <tr>
@@ -91,27 +91,27 @@ Creates a new bare repostiory.
   <tr>
     <td>base_path</td>
     <td>Git repository base path</td>
-    <td><code>node['git-repo']['base_path']</code></td>
+    <td><code>node['git-ssh-server']['base_path']</code></td>
   </tr>
 </table>
 
-### git_repo_bare example
+### git_ssh_server_bare example
 
 ```ruby
-git_repo_bare 'library1'
+git_ssh_server_bare 'library1'
 
-git_repo_bare 'webapp1'
+git_ssh_server_bare 'webapp1'
 ```
 
-## git_repo_ssh_key[keyname]
+## git_ssh_server_ssh_key[keyname]
 
 Grant access to an SSH key to all the repositories.
 
-### git_repo_ssh_key actions
+### git_ssh_server_ssh_key actions
 
 * `add`: adds an SSH key (default).
 
-### git_repo_ssh_key attributes
+### git_ssh_server_ssh_key attributes
 
 <table>
   <tr>
@@ -137,15 +137,15 @@ Grant access to an SSH key to all the repositories.
   <tr>
     <td>base_path</td>
     <td>Git repository base path</td>
-    <td><code>node['git-repo']['base_path']</code></td>
+    <td><code>node['git-ssh-server']['base_path']</code></td>
   </tr>
 </table>
 
-### git_repo_ssh_key example
+### git_ssh_server_ssh_key example
 
 ```ruby
 # the SSH public key from your ~/.ssh/*.pub file
-git_repo_ssh_key 'battle-laptop' do
+git_ssh_server_ssh_key 'battle-laptop' do
   key 'AAAAB3NzaC1yc2EAAAABIwAAAQEA[...]'
 end
 ```
@@ -155,17 +155,17 @@ Usage Example
 
 ```ruby
 
-include_recipe 'git-repo::default' # or put it in your run_list
+include_recipe 'git-ssh-server::default' # or put it in your run_list
 
-git_repo_bare 'my-library-one'
-git_repo_bare 'my-library-two'
-git_repo_bare 'my-webapp'
+git_ssh_server_bare 'my-library-one'
+git_ssh_server_bare 'my-library-two'
+git_ssh_server_bare 'my-webapp'
 
-git_repo_ssh_key 'my-laptop-key' do
+git_ssh_server_ssh_key 'my-laptop-key' do
   key 'AAAAB3NzaC1yc2EAAAABIwAAAQEAv8lgaVb1BtGTLZG2cwc8WQF/X2Mxcuu/UPxN3yT6VQuFa6zl/LbSMND9OADS6ULw6p0hnWPnRDA8rSJvdcYO7pTSJOclScEuIMm4Nx8c3uhfePF/o39QPhH3WAyee/SFDay430Y11W5ZuOXuZ7Wb2PQEPUaQxs9k/MUHjIIcNLS7qG/FP5IGAb0df9KkAnSGXTgZ/Z9Xh+4mAkoBkXIr99oZsphF/PcxcVQfq4V6dTg81LUPLfaSj6U8gXmjRpRYNgk5uEdci7loKDmv1EPKhzwsJIEp9wxpAJqel5sezHaYN5w3zplbr7UY1+YuEBn2jnYhzbdBZcVDmL1D5F/G+Q=='
 end
 
-git_repo_ssh_key 'another-developer' do
+git_ssh_server_ssh_key 'another-developer' do
   key 'AAAAB3NzaC1yc2EAAAABIwAAAQEAqFEaEEv9Fx+6Qv8LPoY+e9rsvaARGJJbvc7y2Tl73zoA6rB7VTxqoyV6mhG+ozRiB4i5g5andBCSDjDXPS0ycUQmiR2OrLZDUpf3uUhaeOO1SFjIbUyFdqy1MBkcmkDzBtXJ/qgn/ydUX59lT00AoPY4URVMt13uaI6GCWrsxRFX+Hxk5prVjoUqJQ7iSidXJ9CHksKTamgn3Ywc9w1MMYcegB+NVg0GsHDZMyq1PxFKGtqNS2PriQfoUrva76rolTej2rbnyH9drZZNi8lsxZ/Xi8ObjT68gc3OfswA64DRhQuN+aQT4bBK1xU+2AE88P9L2LSEYkekTzt7CElqrw=='
 end
 

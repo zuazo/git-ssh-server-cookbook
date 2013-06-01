@@ -1,7 +1,7 @@
 
-default['git-repo']['base_path'] = nil # get from node['git']['server']['base_path']
-default['git-repo']['user'] = 'git'
-default['git-repo']['group'] = 'git'
-default['git-repo']['shell'] = '/usr/bin/git-shell'
-default['git-repo']['hostname'] = node['fqdn']
+default['git-ssh-server']['base_path'] = nil # get from node['git']['server']['base_path']
+default['git-ssh-server']['user'] = 'git'
+default['git-ssh-server']['group'] = 'git'
+default['git-ssh-server']['shell'] = '/usr/bin/git-shell'
+default['git-ssh-server']['hostname'] = node['fqdn']
 

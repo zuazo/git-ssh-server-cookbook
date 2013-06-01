@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
 
 @test "should create repository directories" {
-  [ -d  /srv/git/repo1.git ]
-  [ -d  /srv/git/repo2.git ]
-  [ -d  /srv/git/app3.git ]
+  [ -d /srv/git/repo1.git ]
+  [ -d /srv/git/repo2.git ]
+  [ -d /srv/git/app3.git ]
 }
 
 @test "should initialize repositories" {

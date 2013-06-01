@@ -1,10 +1,10 @@
-# CHANGELOG for git-repo_test
+# CHANGELOG for git-ssh-server_test
 
-This file is used to list changes made in each version of git-repo_test.
+This file is used to list changes made in each version of git-ssh-server_test.
 
 ## 0.1.0:
 
-* Initial release of git-repo_test
+* Initial release of git-ssh-server_test
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

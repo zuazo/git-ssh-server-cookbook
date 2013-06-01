@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: git-repo_test
+# Cookbook Name:: git-ssh-server_test
 # Recipe:: default
 #
 # Copyright 2013, Onddo Labs, Sl.
@@ -17,5 +17,5 @@
 # limitations under the License.
 #
 
-include_recipe 'git-repo'
+include_recipe 'git-ssh-server'
 

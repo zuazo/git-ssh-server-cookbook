@@ -37,9 +37,9 @@ platforms:
 suites:
 - name: default
   run_list:
-  - recipe[git-repo_test::default]
+  - recipe[git-ssh-server_test::default]
   attributes: {}
 - name: lwrp
   run_list:
-  - recipe[git-repo_test::lwrp]
+  - recipe[git-ssh-server_test::lwrp]
   attributes: {}

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: git-repo_test
+# Cookbook Name:: git-ssh-server_test
 # Recipe:: lwrp
 #
 # Copyright 2013, Onddo Labs, Sl.
@@ -17,23 +17,23 @@
 # limitations under the License.
 #
 
-include_recipe 'git-repo'
+include_recipe 'git-ssh-server'
 
-git_repo_bare 'repo1'
-git_repo_bare 'repo2'
-git_repo_bare 'app3'
+git_ssh_server_bare 'repo1'
+git_ssh_server_bare 'repo2'
+git_ssh_server_bare 'app3'
 
-git_repo_ssh_key 'me@foobar.com' do
+git_ssh_server_ssh_key 'me@foobar.com' do
   key 'AAABBBCCC'
   action :add
 end
 
-git_repo_ssh_key 'you@foobar.com' do
+git_ssh_server_ssh_key 'you@foobar.com' do
   key 'DDDEEEFFF'
   action :add
 end
 
-git_repo_ssh_key 'superboss' do
+git_ssh_server_ssh_key 'superboss' do
   key 'GGGHHHIII'
   keytype 'ssh-dsa'
   action :add

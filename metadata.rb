@@ -1,4 +1,4 @@
-name             'git-repo'
+name             'git-ssh-server'
 maintainer       'Onddo Labs, Sl.'
 maintainer_email 'team@onddo.com'
 license          'Apache 2.0'
@@ -14,40 +14,40 @@ end
 
 supports 'mac_os_x', '>= 10.6.0'
 
-recipe 'git-repo::default', 'Configures a git repository container'
+recipe 'git-ssh-server::default', 'Configures a git repository container'
 
-provides 'git_repo_bare[name]'
-provides 'git_repo_ssh_key[keyname]'
+provides 'git_ssh_server_bare[name]'
+provides 'git_ssh_server_ssh_key[keyname]'
 
-attribute 'git-repo/base_path',
+attribute 'git-ssh-server/base_path',
   :display_name => 'Base path',
   :description => 'Git server base path',
   :calculated => true,
   :type => 'string',
   :required => 'optional'
 
-attribute 'git-repo/user',
+attribute 'git-ssh-server/user',
   :display_name => 'System user',
   :description => 'System user used to manage the repositories',
   :type => 'string',
   :required => 'optional',
   :default => 'git'
 
-attribute 'git-repo/group',
+attribute 'git-ssh-server/group',
   :display_name => 'System group',
   :description => 'System group used to manage the repositories',
   :type => 'string',
   :required => 'optional',
   :default => 'git'
 
-attribute 'git-repo/shell',
+attribute 'git-ssh-server/shell',
   :display_name => 'Git user shell',
   :description => 'Git user shell',
   :type => 'string',
   :required => 'optional',
   :default => '/usr/bin/git-shell'
 
-attribute 'git-repo/hostname',
+attribute 'git-ssh-server/hostname',
   :display_name => 'Machine hostname',
   :description => 'Machine hostname, used only in the README template',
   :calculated => true,

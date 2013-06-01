@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: git-repo
+# Cookbook Name:: git-ssh-server
 # Recipe:: default
 #
 # Copyright 2013, Onddo Labs, Sl.
@@ -19,45 +19,45 @@
 
 include_recipe 'git'
 
-if node['git-repo']['base_path'].nil?
-  node.default['git-repo']['base_path'] = node['git']['server']['base_path']
+if node['git-ssh-server']['base_path'].nil?
+  node.default['git-ssh-server']['base_path'] = node['git']['server']['base_path']
 end
 
-user node['git-repo']['user'] do
+user node['git-ssh-server']['user'] do
   comment 'Git repository management user'
-  home node['git-repo']['base_path']
-  shell node['git-repo']['shell']
+  home node['git-ssh-server']['base_path']
+  shell node['git-ssh-server']['shell']
   system true
 end
 
-group node['git-repo']['group'] do
-  members node['git-repo']['user']
+group node['git-ssh-server']['group'] do
+  members node['git-ssh-server']['user']
   system true
   append true
 end
 
-directory node['git-repo']['base_path'] do
-  owner node['git-repo']['user']
-  group node['git-repo']['group']
+directory node['git-ssh-server']['base_path'] do
+  owner node['git-ssh-server']['user']
+  group node['git-ssh-server']['group']
   mode '00750'
   recursive true
 end
 
-directory "#{node['git-repo']['base_path']}/git-shell-commands" do
-  owner node['git-repo']['user']
-  group node['git-repo']['group']
+directory "#{node['git-ssh-server']['base_path']}/git-shell-commands" do
+  owner node['git-ssh-server']['user']
+  group node['git-ssh-server']['group']
   mode '00750'
   recursive true
 end
 
-template "#{node['git-repo']['base_path']}/README.md" do
-  owner node['git-repo']['user']
-  group node['git-repo']['group']
+template "#{node['git-ssh-server']['base_path']}/README.md" do
+  owner node['git-ssh-server']['user']
+  group node['git-ssh-server']['group']
   mode '00640'
   variables(
-    :hostname => node['git-repo']['hostname'],
-    :user => node['git-repo']['user'],
-    :base_path => node['git-repo']['base_path']
+    :hostname => node['git-ssh-server']['hostname'],
+    :user => node['git-ssh-server']['user'],
+    :base_path => node['git-ssh-server']['base_path']
   )
 end
 
