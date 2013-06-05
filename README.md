@@ -26,14 +26,14 @@ Attributes
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Description</td>
-    <td>Default</td>
+    <th>Attribute</th>
+    <th>Description</th>
+    <th>Default</th>
   </tr>
   <tr>
     <td><code>node['git-ssh-server']['base_path']</code></td>
     <td>Git repository base path</td>
-    <td><i>calculated</i></td>
+    <td><em>calculated</em></td>
   </tr>
   <tr>
     <td><code>node['git-ssh-server']['user']</code></td>
@@ -53,7 +53,7 @@ Attributes
   <tr>
     <td><code>node['git-ssh-server']['hostname']</code></td>
     <td>Machine hostname, used only in the README template</td>
-    <td><i>calculated</i></td>
+    <td><em>calculated</em></td>
   </tr>
 </table>
 
@@ -79,14 +79,14 @@ Creates a new bare repostiory.
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Description</td>
-    <td>Default</td>
+    <th>Attribute</th>
+    <th>Description</th>
+    <th>Default</th>
   </tr>
   <tr>
     <td>name</td>
     <td>Repository name</td>
-    <td><i>resource name</i></td>
+    <td><em>resource name</em></td>
   </tr>
   <tr>
     <td>base_path</td>
@@ -115,19 +115,19 @@ Grant access to an SSH key to all the repositories.
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Description</td>
-    <td>Default</td>
+    <th>Attribute</th>
+    <th>Description</th>
+    <th>Default</th>
   </tr>
   <tr>
     <td>keyname</td>
     <td>SSH key name</td>
-    <td><i>resource name</i></td>
+    <td><em>resource name</em></td>
   </tr>
   <tr>
     <td>key</td>
     <td>SSH RSA public key value</td>
-    <td><i>required</i></td>
+    <td><em>required</em></td>
   </tr>
   <tr>
     <td>keytype</td>
