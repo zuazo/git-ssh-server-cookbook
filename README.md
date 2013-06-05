@@ -38,17 +38,17 @@ Attributes
   <tr>
     <td><code>node['git-ssh-server']['user']</code></td>
     <td>System user used to manage the repositories</td>
-    <td><code>git</code></td>
+    <td><code>"git"</code></td>
   </tr>
   <tr>
     <td><code>node['git-ssh-server']['group']</code></td>
     <td>System group used to manage the repositories</td>
-    <td><code>git</code></td>
+    <td><code>"git"</code></td>
   </tr>
   <tr>
     <td><code>node['git-ssh-server']['shell']</code></td>
     <td>Git user shell</td>
-    <td><code>/usr/bin/git-shell</code></td>
+    <td><code>"/usr/bin/git-shell"</code></td>
   </tr>
   <tr>
     <td><code>node['git-ssh-server']['hostname']</code></td>
@@ -132,7 +132,7 @@ Grant access to an SSH key to all the repositories.
   <tr>
     <td>keytype</td>
     <td>SSH RSA key type</td>
-    <td><code>ssh-rsa</code></td>
+    <td><code>"ssh-rsa"</code></td>
   </tr>
   <tr>
     <td>base_path</td>

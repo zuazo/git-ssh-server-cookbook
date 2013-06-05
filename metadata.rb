@@ -31,21 +31,21 @@ attribute 'git-ssh-server/user',
   :description => 'System user used to manage the repositories',
   :type => 'string',
   :required => 'optional',
-  :default => 'git'
+  :default => '"git"'
 
 attribute 'git-ssh-server/group',
   :display_name => 'System group',
   :description => 'System group used to manage the repositories',
   :type => 'string',
   :required => 'optional',
-  :default => 'git'
+  :default => '"git"'
 
 attribute 'git-ssh-server/shell',
   :display_name => 'Git user shell',
   :description => 'Git user shell',
   :type => 'string',
   :required => 'optional',
-  :default => '/usr/bin/git-shell'
+  :default => '"/usr/bin/git-shell"'
 
 attribute 'git-ssh-server/hostname',
   :display_name => 'Machine hostname',
