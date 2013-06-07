@@ -1,7 +1,7 @@
 Description
 ===========
 
-Configures a basic git repository container to be accesed through ssh.
+Set up a basic git repository container to be accesed via ssh.
 
 Requirements
 ============
