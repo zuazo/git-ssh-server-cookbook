@@ -10,7 +10,7 @@ Requirements
 
 * Amazon
 * Arch
-* Centos
+* CentOS
 * Debian
 * Fedora
 * Redhat
@@ -153,8 +153,9 @@ end
 Usage Example
 =============
 
-```ruby
+## Including in a Cookbook Recipe
 
+```ruby
 include_recipe 'git-ssh-server::default' # or put it in your run_list
 
 git_ssh_server_bare 'my-library-one'
@@ -171,6 +172,30 @@ end
 
 ```
 
+Don't forget to include the `git-ssh-server` cookbook as a dependency in the metadata.
+
+```ruby
+# metadata.rb
+[...]
+
+depends 'git-ssh-server'
+```
+
+## Including in the Run List
+
+Another alternative is to include the default recipe in your *Run List*.
+
+```json
+{
+  "name": "git.onddo.com",
+  [...]
+  "run_list": [
+    [...]
+    "recipe[git-ssh-server]"
+  ]
+}
+```
+
 Testing
 =======
 
@@ -185,6 +210,8 @@ Testing
 
 ```bash
 $ kitchen test
+$ kitchen verify
+[...]
 ```
 
 Contributing
