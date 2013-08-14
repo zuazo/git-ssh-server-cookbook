@@ -6,7 +6,7 @@ description      'Set up a basic git repository container to be accesed via ssh'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.1' # WiP
 
-depends 'git'
+depends 'git', '>= 2.2.0'
 
 %w{ amazon arch centos debian fedora redhat scientific oracle amazon ubuntu windows }.each do |os|
   supports os
