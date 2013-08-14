@@ -8,6 +8,6 @@ attribute :base_path, :kind_of => String, :default => nil
 
 def initialize(*args)
   super
-  @action = :create
+  @action = :add
 end
 
