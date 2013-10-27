@@ -16,8 +16,11 @@ supports 'mac_os_x', '>= 10.6.0'
 
 recipe 'git-ssh-server::default', 'Configures a git repository container'
 
-provides 'git_ssh_server_bare[name]'
-provides 'git_ssh_server_ssh_key[keyname]'
+provides 'git_ssh_server_bare'
+provides 'git_ssh_server_ssh_key'
+# Commented until 11.0.10 server release (CHEF-3976)
+# provides 'git_ssh_server_bare[name]'
+# provides 'git_ssh_server_ssh_key[keyname]'
 
 attribute 'git-ssh-server/base_path',
   :display_name => 'Base path',
