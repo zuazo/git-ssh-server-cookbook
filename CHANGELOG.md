@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dovecot.
 
+## 0.1.2:
+
+* metadata: provides without square brackets to avoid [CHEF-3976](https://tickets.opscode.com/browse/CHEF-3976)
+
 ## 0.1.1:
 
 * metadata: added minimum git cookbook version in depends
