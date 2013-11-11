@@ -12,7 +12,7 @@ action :create do
       command "git init --bare '#{base_path}/#{name}.git'"
       user node['git-ssh-server']['user']
       group node['git-ssh-server']['group']
-      not_if do ::File.exists?("#{base_path}/#{name}.git/.git") end
+      not_if "git rev-parse --resolve-git-dir '#{base_path}/#{name}.git' >/dev/null 2>&1"
     end
   end
 
