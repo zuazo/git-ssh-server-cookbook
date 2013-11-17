@@ -1,6 +1,15 @@
-# CHANGELOG for dovecot
+# CHANGELOG for git-ssh-server
 
-This file is used to list changes made in each version of dovecot.
+This file is used to list changes made in each version of `git-ssh-server` cookbook.
+
+## 0.1.3:
+
+* fix: bare repositories do not have .git dir
+* git_ssh_server_bare LWRP notify only when the action is executed
+
+## 0.1.2:
+
+* metadata: provides without square brackets to avoid [CHEF-3976](https://tickets.opscode.com/browse/CHEF-3976)
 
 ## 0.1.2:
 
