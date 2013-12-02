@@ -17,6 +17,15 @@ action :create do
         user node['git-ssh-server']['user']
         group node['git-ssh-server']['group']
       end
+      cookbook_file "#{base_path}/#{name}.git/hooks/post-update" do
+        source "post-update"
+        cookbook "git-ssh-server"
+        action :create_if_missing
+        mode 0755
+        user node['git-ssh-server']['user']
+        group node['git-ssh-server']['group']
+        only_if { new_resource.add_update_server_hook }
+      end
     end
   end
 
