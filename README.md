@@ -95,7 +95,7 @@ Creates a new bare repostiory.
   </tr>
   <tr>
     <td>add_update_server_hook</td>
-    <td>Create the post-update-hook with <code>exec git-update-server-info</code> [true/false]</td>
+    <td>Create the post-update-hook with <code>exec git update-server-info</code> [true/false]</td>
     <td>false</td>
   </tr>
 </table>
