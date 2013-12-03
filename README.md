@@ -93,6 +93,11 @@ Creates a new bare repostiory.
     <td>Git repository base path</td>
     <td><code>node['git-ssh-server']['base_path']</code></td>
   </tr>
+  <tr>
+    <td>add_update_server_hook</td>
+    <td>Create the post-update-hook with <code>exec git update-server-info</code> [true/false]</td>
+    <td>false</td>
+  </tr>
 </table>
 
 ### git_ssh_server_bare example
@@ -100,7 +105,9 @@ Creates a new bare repostiory.
 ```ruby
 git_ssh_server_bare 'library1'
 
-git_ssh_server_bare 'webapp1'
+git_ssh_server_bare 'webapp1' do
+  add_update_server_hook true
+end
 ```
 
 ## git_ssh_server_ssh_key[keyname]

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Created by Chef
+
+exec git update-server-info
+
