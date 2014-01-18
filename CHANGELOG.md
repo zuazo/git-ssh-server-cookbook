@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of `git-ssh-server` cookbook.
 
+## 0.2.0:
+
+* Add update server hook ([issue #1](https://github.com/onddo/git-ssh-server-cookbook/pull/1), thanks [Arnold Krille](https://github.com/kampfschlaefer))
+
 ## 0.1.3:
 
 * fix: bare repositories do not have .git dir
