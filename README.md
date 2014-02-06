@@ -212,8 +212,15 @@ Testing
 * `berkshelf` >= `1.4.0`
 * `test-kitchen` >= `1.0.0.alpha`
 * `kitchen-vagrant` >= `0.10.0`
+* `chefspec` >= `3.2.0`
 
-## Running the tests
+## Running the unit tests
+
+```bash
+$ rspec
+```
+
+## Running the integration tests
 
 ```bash
 $ kitchen test

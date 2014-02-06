@@ -16,3 +16,4 @@ bin
 metadata.json
 test/kitchen/.kitchen/
 .kitchen.local.yml
+.coverage
