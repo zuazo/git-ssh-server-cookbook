@@ -20,7 +20,9 @@
 include_recipe 'git-ssh-server'
 
 git_ssh_server_bare 'repo1'
-git_ssh_server_bare 'repo2'
+git_ssh_server_bare 'repo2' do
+  add_update_server_hook true
+end
 git_ssh_server_bare 'app3'
 
 git_ssh_server_ssh_key 'me@foobar.com' do
