@@ -12,6 +12,10 @@
   [ -d /srv/git/app3.git/objects ]
 }
 
+@test "should create an update hook" {
+  [ -f /srv/git/repo2.git/hooks/post-update ]
+}
+
 @test "should create valid repositories" {
   cd /srv/git/repo1.git/ && \
   git branch
