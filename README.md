@@ -13,7 +13,7 @@ Requirements
 * CentOS
 * Debian
 * Fedora
-* Redhat
+* RedHat
 * Scientific
 * Ubuntu
 
