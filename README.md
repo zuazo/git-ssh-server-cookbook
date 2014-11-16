@@ -4,12 +4,14 @@ Description
 [![Dependency Status](http://img.shields.io/gemnasium/onddo/git-ssh-server-cookbook.svg?style=flat)](https://gemnasium.com/onddo/git-ssh-server-cookbook)
 [![Build Status](http://img.shields.io/travis/onddo/git-ssh-server-cookbook.svg?style=flat)](https://travis-ci.org/onddo/git-ssh-server-cookbook)
 
-Set up a basic git repository container to be accesed via ssh.
+Set up a basic git repository container to be accessed via ssh.
 
 Requirements
 ============
 
-## Platform:
+## Supported Platforms
+
+This cookbook has been tested on the following platforms:
 
 * Amazon
 * Arch
@@ -20,7 +22,9 @@ Requirements
 * Scientific
 * Ubuntu
 
-## Cookbooks:
+Please, [let us know](https://github.com/onddo/git-ssh-server-cookbook/issues/new?title=I%20have%20used%20it%20successfully%20on%20...) if you use it successfully on any other platform.
+
+## Required Cookbooks
 
 * [git](https://supermarket.getchef.com/cookbooks/git)
 
@@ -72,17 +76,17 @@ Resources
 
 ## git_ssh_server_bare[name]
 
-Creates a new bare repostiory.
+Creates a new bare repository.
 
-### git_ssh_server_bare actions
+### git_ssh_server_bare Actions
 
-* `create`: Creates a bare respository (default).
+* `create`: Creates a bare repository (default).
 
-### git_ssh_server_bare attributes
+### git_ssh_server_bare Properties
 
 <table>
   <tr>
-    <th>Attribute</th>
+    <th>Properties</th>
     <th>Description</th>
     <th>Default</th>
   </tr>
@@ -103,7 +107,7 @@ Creates a new bare repostiory.
   </tr>
 </table>
 
-### git_ssh_server_bare example
+### git_ssh_server_bare Example
 
 ```ruby
 git_ssh_server_bare 'library1'
@@ -117,15 +121,15 @@ end
 
 Grant access to an SSH key to all the repositories.
 
-### git_ssh_server_ssh_key actions
+### git_ssh_server_ssh_key Actions
 
 * `add`: adds an SSH key (default).
 
-### git_ssh_server_ssh_key attributes
+### git_ssh_server_ssh_key Properties
 
 <table>
   <tr>
-    <th>Attribute</th>
+    <thProperties</th>
     <th>Description</th>
     <th>Default</th>
   </tr>
@@ -151,7 +155,7 @@ Grant access to an SSH key to all the repositories.
   </tr>
 </table>
 
-### git_ssh_server_ssh_key example
+### git_ssh_server_ssh_key Example
 
 ```ruby
 # the SSH public key from your ~/.ssh/*.pub file
@@ -209,38 +213,14 @@ Another alternative is to include the default recipe in your *Run List*.
 Testing
 =======
 
-## Requirements
-
-* `vagrant`
-* `berkshelf` >= `1.4.0`
-* `test-kitchen` >= `1.0.0.alpha`
-* `kitchen-vagrant` >= `0.10.0`
-* `chefspec` >= `3.2.0`
-
-## Running the unit tests
-
-```bash
-$ rspec
-```
-
-## Running the integration tests
-
-```bash
-$ kitchen test
-$ kitchen verify
-[...]
-```
+See [TESTING.md](https://github.com/onddo/git-ssh-server-cookbook/blob/master/TESTING.md).
 
 Contributing
 ============
 
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write you change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+Please do not hesitate to [open an issue](https://github.com/onddo/git-ssh-server-cookbook/issues/new) with any questions or problems.
 
+See [CONTRIBUTING.md](https://github.com/onddo/git-ssh-server-cookbook/blob/master/CONTRIBUTING.md).
 
 License and Author
 =====================
@@ -253,15 +233,14 @@ License and Author
 | **Copyright:**       | Copyright (c) 2013 Onddo Labs, SL. (www.onddo.com)
 | **License:**         | Apache License, Version 2.0
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+        http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
