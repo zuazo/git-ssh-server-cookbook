@@ -2,7 +2,7 @@ Description
 ===========
 [![Cookbook Version](https://img.shields.io/cookbook/v/git-ssh-server.svg?style=flat)](https://supermarket.getchef.com/cookbooks/git-ssh-server)
 [![Dependency Status](http://img.shields.io/gemnasium/onddo/git-ssh-server-cookbook.svg?style=flat)](https://gemnasium.com/onddo/git-ssh-server-cookbook)
-[![Build Status](http://img.shields.io/travis/onddo/git-ssh-server-cookbook/0.3.0.svg?style=flat)](https://travis-ci.org/onddo/git-ssh-server-cookbook)
+[![Build Status](http://img.shields.io/travis/onddo/git-ssh-server-cookbook.svg?style=flat)](https://travis-ci.org/onddo/git-ssh-server-cookbook)
 
 Set up a basic git repository container to be accessed via ssh.
 
