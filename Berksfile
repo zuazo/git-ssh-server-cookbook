@@ -13,6 +13,7 @@ def local_cookbook(name, version = '>= 0.0.0', options = {})
 end
 
 metadata
+cookbook 'apt'
 
 # Minitest Chef Handler
 # More info at https://github.com/calavera/minitest-chef-handler

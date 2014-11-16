@@ -5,34 +5,21 @@ driver_config:
 
 platforms:
 platforms:
-- name: ubuntu-12.04
-  driver_config:
-    box: opscode-ubuntu-12.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box
+# - name: centos-5.9
+- name: centos-6.6
+- name: centos-7.0
+- name: debian-6.0.10
+  run_list: [ "recipe[apt]" ]
+- name: debian-7.7
+  run_list: [ "recipe[apt]" ]
+- name: fedora-19
+- name: fedora-20
 - name: ubuntu-10.04
-  driver_config:
-    box: opscode-ubuntu-10.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_chef-11.4.4.box
-- name: centos-6.4
-  driver_config:
-    box: opscode-centos-6.4
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_chef-11.4.4.box
-- name: centos-5.9
-  driver_config:
-    box: opscode-centos-5.9
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-5.9_chef-11.4.4.box
-- name: debian-6.0-chef11
-  driver_config:
-    box: debian-6.0.7-chef_11.4.4-2-amd64
-    box_url: https://onddo-vm.s3.amazonaws.com/vagrant/debian-6.0.7-chef_11.4.4-2-amd64.box
-- name: debian-7.0-chef10
-  driver_config:
-    box: debian-7.0.0-chef_10.26.0-1-amd64
-    box_url: https://onddo-vm.s3.amazonaws.com/vagrant/debian-7.0.0-chef_10.26.0-1-amd64.box
-- name: debian-7.0-chef11
-  driver_config:
-    box: debian-7.0.0-chef_11.4.4-2-amd64
-    box_url: https://onddo-vm.s3.amazonaws.com/vagrant/debian-7.0.0-chef_11.4.4-2-amd64.box
+  run_list: [ "recipe[apt]" ]
+- name: ubuntu-12.04
+  run_list: [ "recipe[apt]" ]
+- name: ubuntu-14.04
+  run_list: [ "recipe[apt]" ]
 
 suites:
 - name: default
