@@ -8,9 +8,17 @@ version          '0.3.0' # WiP
 
 depends 'git', '>= 2.2.0'
 
-%w{ amazon arch centos debian fedora redhat scientific oracle amazon ubuntu windows }.each do |os|
-  supports os
-end
+supports 'amazon'
+supports 'arch'
+supports 'centos'
+supports 'debian'
+supports 'fedora'
+supports 'redhat'
+supports 'scientific'
+supports 'oracle'
+supports 'amazon'
+supports 'ubuntu'
+supports 'windows'
 
 supports 'mac_os_x', '>= 10.6.0'
 
