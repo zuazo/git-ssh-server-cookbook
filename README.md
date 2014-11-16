@@ -19,7 +19,7 @@ Requirements
 
 ## Cookbooks:
 
-* git
+* [git](https://supermarket.getchef.com/cookbooks/git)
 
 Attributes
 ==========
