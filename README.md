@@ -83,11 +83,11 @@ Creates a new bare repository.
 
 * `create`: Creates a bare repository (default).
 
-### git_ssh_server_bare Properties
+### git_ssh_server_bare Parameters
 
 <table>
   <tr>
-    <th>Properties</th>
+    <th>Parameters</th>
     <th>Description</th>
     <th>Default</th>
   </tr>
@@ -126,11 +126,11 @@ Grant access to an SSH key to all the repositories.
 
 * `add`: adds an SSH key (default).
 
-### git_ssh_server_ssh_key Properties
+### git_ssh_server_ssh_key Parameters
 
 <table>
   <tr>
-    <thProperties</th>
+    <th>Parameters</th>
     <th>Description</th>
     <th>Default</th>
   </tr>
