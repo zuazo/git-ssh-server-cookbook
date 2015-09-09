@@ -15,10 +15,6 @@ describe 'git-ssh-server::default' do
     expect(chef_run).to include_recipe('git')
   end
 
-  it 'installs git package' do
-    expect(chef_run).to install_package('git')
-  end
-
   it 'calculates base_path attribute when not set' do
     chef_runner.node.set['git-ssh-server']['base_path'] = nil
     chef_runner.node.set['git']['server']['base_path'] = base_path
