@@ -35,7 +35,3 @@ platforms:
   driver_config:
     image: ringo/scientific:6.6
     platform: rhel
-- name: scientific-7.1
-  driver_config:
-    image: ringo/scientific:7.1
-    platform: rhel
