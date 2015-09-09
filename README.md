@@ -1,6 +1,6 @@
 Git SSH Server Cookbook
 =======================
-[![Cookbook Version](https://img.shields.io/cookbook/v/git-ssh-server.svg?style=flat)](https://supermarket.getchef.com/cookbooks/git-ssh-server)
+[![Cookbook Version](https://img.shields.io/cookbook/v/git-ssh-server.svg?style=flat)](https://supermarket.chef.io/cookbooks/git-ssh-server)
 [![Dependency Status](http://img.shields.io/gemnasium/onddo/git-ssh-server-cookbook.svg?style=flat)](https://gemnasium.com/onddo/git-ssh-server-cookbook)
 [![Build Status](http://img.shields.io/travis/onddo/git-ssh-server-cookbook.svg?style=flat)](https://travis-ci.org/onddo/git-ssh-server-cookbook)
 
@@ -27,7 +27,7 @@ Please, [let us know](https://github.com/onddo/git-ssh-server-cookbook/issues/ne
 
 ## Required Cookbooks
 
-* [git](https://supermarket.getchef.com/cookbooks/git)
+* [git](https://supermarket.chef.io/cookbooks/git)
 
 Attributes
 ==========
