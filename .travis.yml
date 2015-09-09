@@ -7,19 +7,121 @@ rvm:
 sudo: true
 
 env:
-- CHEF_VERSION="~> 11.0"
-- CHEF_VERSION="~> 12.0"
+  matrix:
+  - TESTS="style unit" CHEF_VERSION="~> 11.0"
+  - TESTS="style unit" CHEF_VERSION="~> 12.0"
+  - TESTS="integration[centos-6]"
+  - TESTS="integration[centos-7]"
+  - TESTS="integration[debian-6]"
+  - TESTS="integration[debian-7]"
+  - TESTS="integration[debian-8]"
+  - TESTS="integration[fedora-20]"
+  - TESTS="integration[fedora-21]"
+  - TESTS="integration[oraclelinux-6]"
+  - TESTS="integration[oraclelinux-7]"
+  - TESTS="integration[ubuntu-1204]"
+  - TESTS="integration[ubuntu-1404]"
+  - TESTS="integration[ubuntu-1410]"
+  - TESTS="integration[ubuntu-1504]"
+  - TESTS="integration[scientific-66]"
 
 matrix:
   exclude:
-# Chef 12 requires Ruby 2:
   - rvm: 1.9.3
-    env: CHEF_VERSION="~> 12.0"
-# Chef 11 cannot resolve dependencies in Ruby 2.2 (mixlib-shellout):
+    env: TESTS="style unit" CHEF_VERSION="~> 12.0"
   - rvm: 2.2
-    env: CHEF_VERSION="~> 11.0"
+    env: TESTS="style unit" CHEF_VERSION="~> 11.0"
+  - rvm: 1.9.3
+    env: TESTS="integration[centos-6]"
+  - rvm: 2.0.0
+    env: TESTS="integration[centos-6]"
+  - rvm: 2.1
+    env: TESTS="integration[centos-6]"
+  - rvm: 1.9.3
+    env: TESTS="integration[centos-7]"
+  - rvm: 2.0.0
+    env: TESTS="integration[centos-7]"
+  - rvm: 2.1
+    env: TESTS="integration[centos-7]"
+  - rvm: 1.9.3
+    env: TESTS="integration[debian-6]"
+  - rvm: 2.0.0
+    env: TESTS="integration[debian-6]"
+  - rvm: 2.1
+    env: TESTS="integration[debian-6]"
+  - rvm: 1.9.3
+    env: TESTS="integration[debian-7]"
+  - rvm: 2.0.0
+    env: TESTS="integration[debian-7]"
+  - rvm: 2.1
+    env: TESTS="integration[debian-7]"
+  - rvm: 1.9.3
+    env: TESTS="integration[debian-8]"
+  - rvm: 2.0.0
+    env: TESTS="integration[debian-8]"
+  - rvm: 2.1
+    env: TESTS="integration[debian-8]"
+  - rvm: 1.9.3
+    env: TESTS="integration[fedora-20]"
+  - rvm: 2.0.0
+    env: TESTS="integration[fedora-20]"
+  - rvm: 2.1
+    env: TESTS="integration[fedora-20]"
+  - rvm: 1.9.3
+    env: TESTS="integration[fedora-21]"
+  - rvm: 2.0.0
+    env: TESTS="integration[fedora-21]"
+  - rvm: 2.1
+    env: TESTS="integration[fedora-21]"
+  - rvm: 1.9.3
+    env: TESTS="integration[oraclelinux-6]"
+  - rvm: 2.0.0
+    env: TESTS="integration[oraclelinux-6]"
+  - rvm: 2.1
+    env: TESTS="integration[oraclelinux-6]"
+  - rvm: 1.9.3
+    env: TESTS="integration[oraclelinux-7]"
+  - rvm: 2.0.0
+    env: TESTS="integration[oraclelinux-7]"
+  - rvm: 2.1
+    env: TESTS="integration[oraclelinux-7]"
+  - rvm: 1.9.3
+    env: TESTS="integration[ubuntu-1204]"
+  - rvm: 2.0.0
+    env: TESTS="integration[ubuntu-1204]"
+  - rvm: 2.1
+    env: TESTS="integration[ubuntu-1204]"
+  - rvm: 1.9.3
+    env: TESTS="integration[ubuntu-1404]"
+  - rvm: 2.0.0
+    env: TESTS="integration[ubuntu-1404]"
+  - rvm: 2.1
+    env: TESTS="integration[ubuntu-1404]"
+  - rvm: 1.9.3
+    env: TESTS="integration[ubuntu-1410]"
+  - rvm: 2.0.0
+    env: TESTS="integration[ubuntu-1410]"
+  - rvm: 2.1
+    env: TESTS="integration[ubuntu-1410]"
+  - rvm: 1.9.3
+    env: TESTS="integration[ubuntu-1504]"
+  - rvm: 2.0.0
+    env: TESTS="integration[ubuntu-1504]"
+  - rvm: 2.1
+    env: TESTS="integration[ubuntu-1504]"
+  - rvm: 1.9.3
+    env: TESTS="integration[scientific-66]"
+  - rvm: 2.0.0
+    env: TESTS="integration[scientific-66]"
+  - rvm: 2.1
+    env: TESTS="integration[scientific-66]"
 
-bundler_args: --without doc integration integration_docker integration_vagrant integration_cloud guard
+bundler_args: --jobs=3 --retry=3 --without='doc integration_vagrant integration_cloud guard'
+
+before_script:
+- source <(curl -sL https://raw.githubusercontent.com/zuazo/kitchen-in-travis/0.3.0/scripts/start_docker.sh)
 
 script:
-- bundle exec rake style unit
+- travis_retry bundle exec rake $TESTS
+
+after_failure: cat docker_daemon.log
