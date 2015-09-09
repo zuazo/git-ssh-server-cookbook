@@ -22,7 +22,7 @@ if defined?(ChefSpec)
 
   if ChefSpec.respond_to?(:define_matcher)
     # ChefSpec >= 4.1
-    ChefSpec.define_matcher matcher
+    ChefSpec.define_matcher :git_ssh_server_bare
   elsif defined?(ChefSpec::Runner) &&
         ChefSpec::Runner.respond_to?(:define_runner_method)
     # ChefSpec < 4.1
