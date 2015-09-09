@@ -1,6 +1,6 @@
 name             'git-ssh-server'
-maintainer       'Onddo Labs, Sl.'
-maintainer_email 'team@onddo.com'
+maintainer 'Xabier de Zuazo'
+maintainer_email 'xabier@zuazo.org'
 license          'Apache 2.0'
 description      'Set up a basic git repository container to be accesed via ssh'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))

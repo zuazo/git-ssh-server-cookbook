@@ -1,8 +1,8 @@
 Git SSH Server Cookbook
 =======================
 [![Cookbook Version](https://img.shields.io/cookbook/v/git-ssh-server.svg?style=flat)](https://supermarket.chef.io/cookbooks/git-ssh-server)
-[![Dependency Status](http://img.shields.io/gemnasium/onddo/git-ssh-server-cookbook.svg?style=flat)](https://gemnasium.com/onddo/git-ssh-server-cookbook)
-[![Build Status](http://img.shields.io/travis/onddo/git-ssh-server-cookbook.svg?style=flat)](https://travis-ci.org/onddo/git-ssh-server-cookbook)
+[![Dependency Status](http://img.shields.io/gemnasium/zuazo/git-ssh-server-cookbook.svg?style=flat)](https://gemnasium.com/zuazo/git-ssh-server-cookbook)
+[![Build Status](http://img.shields.io/travis/zuazo/git-ssh-server-cookbook.svg?style=flat)](https://travis-ci.org/zuazo/git-ssh-server-cookbook)
 
 [Chef](https://www.chef.io/) cookbook to set up a basic git repository container to be accessed via SSH.
 
@@ -23,7 +23,7 @@ This cookbook has been tested on the following platforms:
 * Scientific
 * Ubuntu
 
-Please, [let us know](https://github.com/onddo/git-ssh-server-cookbook/issues/new?title=I%20have%20used%20it%20successfully%20on%20...) if you use it successfully on any other platform.
+Please, [let us know](https://github.com/zuazo/git-ssh-server-cookbook/issues/new?title=I%20have%20used%20it%20successfully%20on%20...) if you use it successfully on any other platform.
 
 ## Required Cookbooks
 
@@ -202,7 +202,7 @@ Another alternative is to include the default recipe in your *Run List*.
 
 ```json
 {
-  "name": "git.onddo.com",
+  "name": "git.example.com",
   [...]
   "run_list": [
     [...]
@@ -214,14 +214,14 @@ Another alternative is to include the default recipe in your *Run List*.
 Testing
 =======
 
-See [TESTING.md](https://github.com/onddo/git-ssh-server-cookbook/blob/master/TESTING.md).
+See [TESTING.md](https://github.com/zuazo/git-ssh-server-cookbook/blob/master/TESTING.md).
 
 Contributing
 ============
 
-Please do not hesitate to [open an issue](https://github.com/onddo/git-ssh-server-cookbook/issues/new) with any questions or problems.
+Please do not hesitate to [open an issue](https://github.com/zuazo/git-ssh-server-cookbook/issues/new) with any questions or problems.
 
-See [CONTRIBUTING.md](https://github.com/onddo/git-ssh-server-cookbook/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/zuazo/git-ssh-server-cookbook/blob/master/CONTRIBUTING.md).
 
 License and Author
 =====================
@@ -229,9 +229,10 @@ License and Author
 |                      |                                          |
 |:---------------------|:-----------------------------------------|
 | **Author:**          | Raúl Rodríguez (<raul@onddo.com>)
-| **Author:**          | Xabier de Zuazo (<xabier@onddo.com>)
+| **Author:**          | Xabier de Zuazo (<xabier@zuazo.org>)
 | **Contributor:**     | [Arnold Krille](https://github.com/kampfschlaefer)
-| **Copyright:**       | Copyright (c) 2013 Onddo Labs, SL. (www.onddo.com)
+| **Copyright:**       | Copyright (c) 2015, Xabier de Zuazo
+| **Copyright:**       | Copyright (c) 2013 Onddo Labs, SL.
 | **License:**         | Apache License, Version 2.0
 
     Licensed under the Apache License, Version 2.0 (the "License");

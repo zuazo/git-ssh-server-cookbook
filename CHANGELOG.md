@@ -4,7 +4,7 @@ This file is used to list changes made in each version of `git-ssh-server` cookb
 
 ## v0.3.0 (2014-11-16)
 
-* Activate the post-update hook when the param is true ([issue #3](https://github.com/onddo/git-ssh-server-cookbook/pull/3), thanks [Arnold Krille](https://github.com/kampfschlaefer)).
+* Activate the post-update hook when the param is true ([issue #3](https://github.com/zuazo/git-ssh-server-cookbook/pull/3), thanks [Arnold Krille](https://github.com/kampfschlaefer)).
 * `git_ssh_server_bare`: change user/group in `shell_out` command.
 * Add FreeBSD support.
 * Add ChefSpec tests for git-ssh-server::default recipe.
@@ -14,7 +14,7 @@ This file is used to list changes made in each version of `git-ssh-server` cookb
  * Move test-kitchen gems to `:integration` group.
  * Fix *Illformed requirement in "berkshelf"*.
 * Add travis.yml file.
-* Test for the update-hook ([issue #2](https://github.com/onddo/git-ssh-server-cookbook/pull/2), thanks [Arnold Krille](https://github.com/kampfschlaefer)).
+* Test for the update-hook ([issue #2](https://github.com/zuazo/git-ssh-server-cookbook/pull/2), thanks [Arnold Krille](https://github.com/kampfschlaefer)).
 * Update tests: add Gemfile, Berksfile and Rakefile templates.
 * Update kitchen.yml file.
 * Move *test/kitchen/cookbooks* to *test/cookbooks*.
@@ -25,7 +25,7 @@ This file is used to list changes made in each version of `git-ssh-server` cookb
 
 ## v0.2.0 (2014-01-18)
 
-* Add update server hook ([issue #1](https://github.com/onddo/git-ssh-server-cookbook/pull/1), thanks [Arnold Krille](https://github.com/kampfschlaefer)).
+* Add update server hook ([issue #1](https://github.com/zuazo/git-ssh-server-cookbook/pull/1), thanks [Arnold Krille](https://github.com/kampfschlaefer)).
 
 ## v0.1.3 (2013-11-17)
 
