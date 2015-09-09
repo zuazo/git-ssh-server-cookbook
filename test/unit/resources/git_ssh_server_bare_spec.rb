@@ -76,10 +76,10 @@ describe 'git_ssh_server_bare resource' do
     let(:proc_status) { instance_double('Process::Status') }
     let(:repos) { %w(repo1 repo2 app3) }
     before do
-      allow_any_instance_of(Chef::Provider::LWRPBase).to receive(:shell_out)
+      allow_any_instance_of(Chef::Mixin::ShellOut).to receive(:shell_out)
         .and_call_original
       repos.each do |repo|
-        allow_any_instance_of(Chef::Provider::LWRPBase).to receive(:shell_out)
+        allow_any_instance_of(Chef::Mixin::ShellOut).to receive(:shell_out)
           .with(
             "git rev-parse --resolve-git-dir '/srv/git/#{repo}.git'",
             user: 'git', group: 'git'
@@ -131,7 +131,7 @@ describe 'git_ssh_server_bare resource' do
         )
     end
 
-    context 'when the repositories already exist' do
+    context 'when the repositories already exists' do
       before { allow(proc_status).to receive(:success?).and_return(true) }
 
       it 'does not create repo1 bare repository' do
