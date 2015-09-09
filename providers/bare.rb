@@ -46,6 +46,9 @@ action :create do
         command "git init --bare '#{repo_path.delete("'")}'"
         user node['git-ssh-server']['user']
         group node['git-ssh-server']['group']
+        # Fix: fatal: unable to access '/home/vagrant/.config/git/config':
+        # Permission denied
+        environment 'HOME' => node['git-ssh-server']['base_path']
       end
     end
   end

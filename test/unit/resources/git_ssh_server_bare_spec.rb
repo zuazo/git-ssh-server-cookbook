@@ -92,6 +92,10 @@ describe 'git_ssh_server_bare resource' do
 
     it 'creates repo1 bare repository' do
       expect(chef_run).to run_execute('git init --bare repo1')
+        .with_command("git init --bare '/srv/git/repo1.git'")
+        .with_user('git')
+        .with_group('git')
+        .with_environment('HOME' => '/srv/git')
     end
 
     it 'creates repo2 bare repository' do
