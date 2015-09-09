@@ -19,3 +19,24 @@
 
 include_recipe 'git-ssh-server'
 
+git_ssh_server_bare 'repo1'
+git_ssh_server_bare 'repo2' do
+  add_update_server_hook true
+end
+git_ssh_server_bare 'app3'
+
+git_ssh_server_ssh_key 'me@foobar.com' do
+  key 'AAABBBCCC'
+  action :add
+end
+
+git_ssh_server_ssh_key 'you@foobar.com' do
+  key 'DDDEEEFFF'
+  action :add
+end
+
+git_ssh_server_ssh_key 'superboss' do
+  key 'GGGHHHIII'
+  keytype 'ssh-dsa'
+  action :add
+end

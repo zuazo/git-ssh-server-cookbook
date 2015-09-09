@@ -1,8 +1,8 @@
+# encoding: UTF-8
 #
-# Cookbook Name:: git-ssh-server_test
-# Recipe:: lwrp
-#
-# Copyright 2013, Onddo Labs, Sl.
+# Author:: Xabier de Zuazo (<xabier@zuazo.org>)
+# Copyright:: Copyright (c) 2015 Xabier de Zuazo
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,27 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe 'git-ssh-server'
+require 'serverspec'
 
-git_ssh_server_bare 'repo1'
-git_ssh_server_bare 'repo2' do
-  add_update_server_hook true
-end
-git_ssh_server_bare 'app3'
+# Set backend type
+set :backend, :exec
 
-git_ssh_server_ssh_key 'me@foobar.com' do
-  key 'AAABBBCCC'
-  action :add
-end
-
-git_ssh_server_ssh_key 'you@foobar.com' do
-  key 'DDDEEEFFF'
-  action :add
-end
-
-git_ssh_server_ssh_key 'superboss' do
-  key 'GGGHHHIII'
-  keytype 'ssh-dsa'
-  action :add
-end
-
+ENV['PATH'] = '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
