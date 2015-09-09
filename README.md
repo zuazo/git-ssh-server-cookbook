@@ -221,7 +221,7 @@ Please do not hesitate to [open an issue](https://github.com/zuazo/git-ssh-serve
 See [CONTRIBUTING.md](https://github.com/zuazo/git-ssh-server-cookbook/blob/master/CONTRIBUTING.md).
 
 License and Author
-=====================
+==================
 
 |                      |                                          |
 |:---------------------|:-----------------------------------------|
