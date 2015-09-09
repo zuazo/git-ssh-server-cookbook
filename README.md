@@ -153,6 +153,42 @@ Testing
 
 See [TESTING.md](https://github.com/zuazo/git-ssh-server-cookbook/blob/master/TESTING.md).
 
+## ChefSpec Matchers
+
+### git_ssh_server_bare(name)
+
+Helper method for locating a `git_ssh_server_bare` resource in the collection.
+
+```ruby
+resource = chef_run.git_ssh_server_bare(name)
+expect(resource).to notify('service[apache2]').to(:reload)
+```
+
+### create_git_ssh_server_bare(name)
+
+Assert that the *Chef Run* creates a bare repository in the Git SSH Server.
+
+```ruby
+expect(chef_run).to create_git_ssh_server_bare(name)
+```
+
+### git_ssh_server_ssh_key(keyname)
+
+Helper method for locating a `git_ssh_server_ssh_key` resource in the collection.
+
+```ruby
+resource = chef_run.git_ssh_server_ssh_key(keyname)
+expect(resource).to notify('service[apache2]').to(:reload)
+```
+
+### add_git_ssh_server_ssh_key(keyname)
+
+Assert that the *Chef Run* add a SSH key in the Git SSH Server.
+
+```ruby
+expect(chef_run).to add_git_ssh_server_ssh_key(keyname)
+```
+
 Contributing
 ============
 
