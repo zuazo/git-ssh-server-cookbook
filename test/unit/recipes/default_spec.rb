@@ -22,14 +22,10 @@ require_relative '../spec_helper'
 
 describe 'git-ssh-server::default' do
   let(:base_path) { '/var/git_base_path' }
-  let(:chef_runner) do
-    ChefSpec::Runner.new do |node|
-      node.set['git-ssh-server']['base_path'] = base_path
-    end
-  end
-  let(:chef_run) do
-    chef_runner.converge(described_recipe)
-  end
+  let(:chef_runner) { ChefSpec::SoloRunner.new }
+  let(:chef_run) { chef_runner.converge(described_recipe) }
+  let(:node) { chef_runner.node }
+  before { node.set['git-ssh-server']['base_path'] = base_path }
 
   it 'includes git recipe' do
     expect(chef_run).to include_recipe('git')
@@ -91,5 +87,4 @@ describe 'git-ssh-server::default' do
       :mode => '00640'
     )
   end
-
 end
