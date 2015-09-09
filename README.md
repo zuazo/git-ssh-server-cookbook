@@ -32,38 +32,13 @@ Please, [let us know](https://github.com/zuazo/git-ssh-server-cookbook/issues/ne
 Attributes
 ==========
 
-<table>
-  <tr>
-    <th>Attribute</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><code>node['git-ssh-server']['base_path']</code></td>
-    <td>Git repository base path</td>
-    <td><em>calculated</em></td>
-  </tr>
-  <tr>
-    <td><code>node['git-ssh-server']['user']</code></td>
-    <td>System user used to manage the repositories</td>
-    <td><code>"git"</code></td>
-  </tr>
-  <tr>
-    <td><code>node['git-ssh-server']['group']</code></td>
-    <td>System group used to manage the repositories</td>
-    <td><code>"git"</code></td>
-  </tr>
-  <tr>
-    <td><code>node['git-ssh-server']['shell']</code></td>
-    <td>Git user shell</td>
-    <td><code>"/usr/bin/git-shell"</code></td>
-  </tr>
-  <tr>
-    <td><code>node['git-ssh-server']['hostname']</code></td>
-    <td>Machine hostname, used only in the README template</td>
-    <td><em>calculated</em></td>
-  </tr>
-</table>
+| Attribute                             | Default                | Description                    |
+|:--------------------------------------|:-----------------------|:-------------------------------|
+| `node['git-ssh-server']['base_path']` | *calculated*           | Git repository base path
+| `node['git-ssh-server']['user']`      | `'git'`                | System user used to manage the repositories
+| `node['git-ssh-server']['group']`     | `'git'`                | System group used to manage the repositories
+| `node['git-ssh-server']['shell']`     | `'/usr/bin/git-shell'` | Git user shell
+| `node['git-ssh-server']['hostname']`  | *calculated*           | Machine hostname, used only in the README template
 
 Recipes
 =======
@@ -85,28 +60,11 @@ Creates a new bare repository.
 
 ### git_ssh_server_bare Parameters
 
-<table>
-  <tr>
-    <th>Parameters</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Repository name</td>
-    <td><em>resource name</em></td>
-  </tr>
-  <tr>
-    <td>base_path</td>
-    <td>Git repository base path</td>
-    <td><code>node['git-ssh-server']['base_path']</code></td>
-  </tr>
-  <tr>
-    <td>add_update_server_hook</td>
-    <td>Create the post-update-hook with <code>exec git update-server-info</code> [true/false]</td>
-    <td>false</td>
-  </tr>
-</table>
+| Parameters             | Default         | Description                    |
+|:-----------------------|:----------------|:-------------------------------|
+| name                   | *resource name* | Repository name
+| base_path              | *calculated*    | Git repository base path
+| add_update_server_hook | false           | Create the post-update-hook with `exec git update-server-info` [true/false]
 
 ### git_ssh_server_bare Example
 
@@ -128,33 +86,12 @@ Grant access to an SSH key to all the repositories.
 
 ### git_ssh_server_ssh_key Parameters
 
-<table>
-  <tr>
-    <th>Parameters</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td>keyname</td>
-    <td>SSH key name</td>
-    <td><em>resource name</em></td>
-  </tr>
-  <tr>
-    <td>key</td>
-    <td>SSH RSA public key value</td>
-    <td><em>required</em></td>
-  </tr>
-  <tr>
-    <td>keytype</td>
-    <td>SSH RSA key type</td>
-    <td><code>"ssh-rsa"</code></td>
-  </tr>
-  <tr>
-    <td>base_path</td>
-    <td>Git repository base path</td>
-    <td><code>node['git-ssh-server']['base_path']</code></td>
-  </tr>
-</table>
+| Parameters | Default         | Description              |
+|:-----------|:----------------|:-------------------------|
+| keyname    | *resource name* | SSH key name
+| key        | *required*      | SSH RSA public key value
+| keytype    | `"ssh-rsa"`     | SSH RSA key type
+| base_path  | *calculated*    | Git repository base path
 
 ### git_ssh_server_ssh_key Example
 
@@ -191,7 +128,7 @@ Don't forget to include the `git-ssh-server` cookbook as a dependency in the met
 
 ```ruby
 # metadata.rb
-[...]
+# [...]
 
 depends 'git-ssh-server'
 ```
@@ -203,9 +140,9 @@ Another alternative is to include the default recipe in your *Run List*.
 ```json
 {
   "name": "git.example.com",
-  [...]
+  "[...]": "[...]",
   "run_list": [
-    [...]
+    "[...]",
     "recipe[git-ssh-server]"
   ]
 }
