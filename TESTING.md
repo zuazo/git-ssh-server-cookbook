@@ -54,6 +54,16 @@ Or:
     $ bundle exec kitchen test
     [...]
 
+### Running Integration Tests in Docker
+
+You need to have [Docker installed](https://docs.docker.com/installation/).
+
+    $ wget -qO- https://get.docker.com/ | sh
+
+Then use the `integration:docker` rake task to run the tests:
+
+    $ bundle exec rake integration:docker
+
 ### Running Integration Tests in the Cloud
 
 #### Requirements
