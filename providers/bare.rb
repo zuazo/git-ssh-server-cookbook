@@ -32,8 +32,7 @@ action :create do
   base_path = new_resource.base_path || node['git-ssh-server']['base_path']
 
   unless shell_out( # ~FC023
-           "git rev-parse --resolve-git-dir '#{base_path}/#{name}.git' "\
-           '> /dev/null 2>&1',
+           "git rev-parse --resolve-git-dir '#{base_path}/#{name}.git'",
            {
              :user => node['git-ssh-server']['user'],
              :group => node['git-ssh-server']['group']
@@ -56,5 +55,4 @@ action :create do
     group node['git-ssh-server']['group']
     only_if { new_resource.add_update_server_hook }
   end
-
 end

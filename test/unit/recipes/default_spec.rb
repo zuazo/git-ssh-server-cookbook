@@ -71,7 +71,7 @@ describe 'git-ssh-server::default' do
     )
   end
 
-  it 'creates base path directory' do
+  it 'creates git-shell-command directory' do
     expect(chef_run).to create_directory("#{base_path}/git-shell-commands").with(
       :owner => 'git',
       :group => 'git',
