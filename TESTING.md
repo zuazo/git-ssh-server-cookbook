@@ -36,3 +36,29 @@ Or:
     $ bundle exec kitchen list
     $ bundle exec kitchen test
     [...]
+
+## Using Vagrant with the Vagrantfile
+
+### Vagrantfile Requirements
+
+* ChefDK: https://downloads.chef.io/chef-dk/
+* Berkhelf and Omnibus vagrant plugins:
+```
+$ vagrant plugin install vagrant-berkshelf vagrant-omnibus
+```
+* The path correctly set for ChefDK:
+```
+$ export PATH="/opt/chefdk/bin:${PATH}"
+```
+
+### Vagrantfile Usage
+
+    $ vagrant up
+
+To run Chef again on the same machine:
+
+    $ vagrant provision
+
+To destroy the machine:
+
+    $ vagrant destroy
