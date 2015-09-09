@@ -16,8 +16,6 @@ env:
   - TESTS="integration:docker[debian-7]"
   - TESTS="integration:docker[debian-8]"
   - TESTS="integration:docker[fedora-20]"
-  - TESTS="integration:docker[fedora-21]"
-  - TESTS="integration:docker[oraclelinux-6]"
   - TESTS="integration:docker[oraclelinux-7]"
   - TESTS="integration:docker[ubuntu-1204]"
   - TESTS="integration:docker[ubuntu-1404]"
@@ -67,18 +65,6 @@ matrix:
     env: TESTS="integration:docker[fedora-20]"
   - rvm: 2.1
     env: TESTS="integration:docker[fedora-20]"
-  - rvm: 1.9.3
-    env: TESTS="integration:docker[fedora-21]"
-  - rvm: 2.0.0
-    env: TESTS="integration:docker[fedora-21]"
-  - rvm: 2.1
-    env: TESTS="integration:docker[fedora-21]"
-  - rvm: 1.9.3
-    env: TESTS="integration:docker[oraclelinux-6]"
-  - rvm: 2.0.0
-    env: TESTS="integration:docker[oraclelinux-6]"
-  - rvm: 2.1
-    env: TESTS="integration:docker[oraclelinux-6]"
   - rvm: 1.9.3
     env: TESTS="integration:docker[oraclelinux-7]"
   - rvm: 2.0.0
