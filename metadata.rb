@@ -35,6 +35,7 @@ if respond_to?(:issues_url)
 end
 
 depends 'git', '>= 2.2.0'
+depends 'ssh_authorized_keys', '~> 0.3'
 
 supports 'amazon'
 supports 'arch'

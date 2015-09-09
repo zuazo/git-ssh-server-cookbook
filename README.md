@@ -76,13 +76,12 @@ git_ssh_server_bare 'webapp1' do
 end
 ```
 
+Definitions
+===========
+
 ## git_ssh_server_ssh_key[keyname]
 
-Grant access to an SSH key to all the repositories.
-
-### git_ssh_server_ssh_key Actions
-
-* `add`: adds an SSH key (default).
+Grant access to a SSH key to all the repositories.
 
 ### git_ssh_server_ssh_key Parameters
 
@@ -90,7 +89,7 @@ Grant access to an SSH key to all the repositories.
 |:-----------|:----------------|:-------------------------|
 | keyname    | *resource name* | SSH key name
 | key        | *required*      | SSH RSA public key value
-| keytype    | `"ssh-rsa"`     | SSH RSA key type
+| keytype    | `'ssh-rsa'`     | SSH RSA key type
 | base_path  | *calculated*    | Git repository base path
 
 ### git_ssh_server_ssh_key Example
@@ -172,21 +171,23 @@ Assert that the *Chef Run* creates a bare repository in the Git SSH Server.
 expect(chef_run).to create_git_ssh_server_bare(name)
 ```
 
-### git_ssh_server_ssh_key(keyname)
+### ChefSpec Matchers for the `git_ssh_server_ssh_key` Definition
 
-Helper method for locating a `git_ssh_server_ssh_key` resource in the collection.
+To create ChefSpec tests for the `git_ssh_server_ssh_key` definition, you can use the [`render_file`](http://www.rubydoc.info/github/sethvargo/chefspec#render_file) matcher to check the *authorized_keys* file content:
 
 ```ruby
-resource = chef_run.git_ssh_server_ssh_key(keyname)
-expect(resource).to notify('service[apache2]').to(:reload)
+it 'allows bob to access git repositories' do
+  expect(chef_run).to render_file('/srv/git/.ssh/authorized_keys')
+    .with_content(/^ssh-rsa [A-Za-z0-9+\/=]+ bob@acme\.com$/)
+end
 ```
 
-### add_git_ssh_server_ssh_key(keyname)
-
-Assert that the *Chef Run* add a SSH key in the Git SSH Server.
+You can also test against the internal template:
 
 ```ruby
-expect(chef_run).to add_git_ssh_server_ssh_key(keyname)
+it 'creates /srv/git/.ssh/authorized_keys file' do
+  expect(chef_run).to create_template('/srv/git/.ssh/authorized_keys')
+end
 ```
 
 Contributing

@@ -26,8 +26,3 @@ suites:
 - name: default
   run_list:
   - recipe[git-ssh-server_test::default]
-  attributes: {}
-- name: lwrp
-  run_list:
-  - recipe[git-ssh-server_test::lwrp]
-  attributes: {}

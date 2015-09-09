@@ -1,10 +1,9 @@
 # encoding: UTF-8
 #
 # Cookbook Name:: git-ssh-server
-# Resource:: ssh_key
+# Definition:: git_ssh_server_ssh_key
 # Author:: Xabier de Zuazo (<xabier@zuazo.org>)
 # Copyright:: Copyright (c) 2015 Xabier de Zuazo
-# Copyright:: Copyright (c) 2013-2014 Onddo Labs, SL.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,14 +19,23 @@
 # limitations under the License.
 #
 
-actions :add
+define :git_ssh_server_ssh_key do
+  base_path = params[:base_path] || node['git-ssh-server']['base_path']
+  ssh_keyname = params[:keyname] || params[:name]
+  ssh_key = params[:key]
+  ssh_keytype = params[:keytype]
 
-attribute :keyname, :kind_of => String, :name_attribute => true
-attribute :key, :kind_of => String, :required => true
-attribute :keytype, :kind_of => String, :default => 'ssh-rsa'
-attribute :base_path, :kind_of => String, :default => nil
+  r = ssh_authorize_key ssh_keyname do
+    user node['git-ssh-server']['user']
+    group node['git-ssh-server']['group']
+    home base_path
+    key ssh_key
+    keytype ssh_keytype
+  end
 
-def initialize(*args)
-  super
-  @action = :add
+  # For notifications support (only works in Chef 12).
+  # @example
+  #   my_definition = git_ssh_server_ssh_key 'bob@acme.com' { ... }
+  #   my_definition.notifies :run, 'execute[thing]'
+  r
 end

@@ -20,27 +20,16 @@
 
 if defined?(ChefSpec)
 
-  [
-    :git_ssh_server_bare,
-    :git_ssh_server_ssh_key
-  ].each do |matcher|
-    if ChefSpec.respond_to?(:define_matcher)
-      # ChefSpec >= 4.1
-      ChefSpec.define_matcher matcher
-    elsif defined?(ChefSpec::Runner) &&
-          ChefSpec::Runner.respond_to?(:define_runner_method)
-      # ChefSpec < 4.1
-      ChefSpec::Runner.define_runner_method matcher
-    end
+  if ChefSpec.respond_to?(:define_matcher)
+    # ChefSpec >= 4.1
+    ChefSpec.define_matcher matcher
+  elsif defined?(ChefSpec::Runner) &&
+        ChefSpec::Runner.respond_to?(:define_runner_method)
+    # ChefSpec < 4.1
+    ChefSpec::Runner.define_runner_method :git_ssh_server_bare
   end
 
   def create_git_ssh_server_bare(name)
     ChefSpec::Matchers::ResourceMatcher.new(:git_ssh_server_bare, :create, name)
-  end
-
-  def add_git_ssh_server_ssh_key(keyname)
-    ChefSpec::Matchers::ResourceMatcher.new(
-      :git_ssh_server_ssh_key, :add, keyname
-    )
   end
 end
