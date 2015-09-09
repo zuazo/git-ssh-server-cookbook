@@ -23,7 +23,8 @@
 include_recipe 'git'
 
 if node['git-ssh-server']['base_path'].nil?
-  node.default['git-ssh-server']['base_path'] = node['git']['server']['base_path']
+  node.default['git-ssh-server']['base_path'] =
+    node['git']['server']['base_path']
 end
 
 user node['git-ssh-server']['user'] do
@@ -58,9 +59,8 @@ template "#{node['git-ssh-server']['base_path']}/README.md" do
   group node['git-ssh-server']['group']
   mode '00640'
   variables(
-    :hostname => node['git-ssh-server']['hostname'],
-    :user => node['git-ssh-server']['user'],
-    :base_path => node['git-ssh-server']['base_path']
+    hostname: node['git-ssh-server']['hostname'],
+    user: node['git-ssh-server']['user'],
+    base_path: node['git-ssh-server']['base_path']
   )
 end
-

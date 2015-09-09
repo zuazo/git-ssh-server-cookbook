@@ -78,20 +78,20 @@ describe 'Repositories' do
 
   describe 'clone repositories' do
     describe command(
-              'rm -rf /tmp/repo1 && git clone /srv/git/repo1.git /tmp/repo1'
-             ) do
+      'rm -rf /tmp/repo1 && git clone /srv/git/repo1.git /tmp/repo1'
+    ) do
       its(:exit_status) { should eq 0 }
     end
 
     describe command(
-              'rm -rf /tmp/repo2 && git clone /srv/git/repo2.git /tmp/repo2'
-             ) do
+      'rm -rf /tmp/repo2 && git clone /srv/git/repo2.git /tmp/repo2'
+    ) do
       its(:exit_status) { should eq 0 }
     end
 
     describe command(
-              'rm -rf /tmp/app3 && git clone /srv/git/app3.git /tmp/app3'
-             ) do
+      'rm -rf /tmp/app3 && git clone /srv/git/app3.git /tmp/app3'
+    ) do
       its(:exit_status) { should eq 0 }
     end
   end

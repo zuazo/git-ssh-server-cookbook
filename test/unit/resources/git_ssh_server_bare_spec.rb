@@ -54,17 +54,17 @@ describe 'git_ssh_server_bare resource' do
 
     it 'adds me@foobar.com SSH key' do
       expect(chef_run).to render_file('/srv/git/.ssh/authorized_keys')
-        .with_content(/^ssh-rsa [A-Za-z0-9+\/=]+ me@foobar\.com$/)
+        .with_content(%r{^ssh-rsa [A-Za-z0-9+/=]+ me@foobar\.com$})
     end
 
     it 'adds you@foobar.com SSH key' do
       expect(chef_run).to render_file('/srv/git/.ssh/authorized_keys')
-        .with_content(/^ssh-rsa [A-Za-z0-9+\/=]+ you@foobar\.com$/)
+        .with_content(%r{^ssh-rsa [A-Za-z0-9+/=]+ you@foobar\.com$})
     end
 
     it 'adds superboss SSH key' do
       expect(chef_run).to render_file('/srv/git/.ssh/authorized_keys')
-        .with_content(/^ssh-dss [A-Za-z0-9+\/=]+ superboss$/)
+        .with_content(%r{^ssh-dss [A-Za-z0-9+/=]+ superboss$})
     end
   end # context using resource matchers
 

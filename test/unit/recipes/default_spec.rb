@@ -32,59 +32,54 @@ describe 'git-ssh-server::default' do
   end
 
   it 'calculates base_path attribute when not set' do
-    chef_runner.node.set['git-ssh-server']['base_path'] = nil
-    chef_runner.node.set['git']['server']['base_path'] = base_path
-    chef_runner.converge(described_recipe)
-    expect(chef_runner.node['git-ssh-server']['base_path']).to eq(base_path)
+    node.set['git-ssh-server']['base_path'] = nil
+    node.set['git']['server']['base_path'] = base_path
+    chef_run
+    expect(node['git-ssh-server']['base_path']).to eq(base_path)
   end
 
   it 'does not calculate base_path attribute when set' do
-    chef_runner.node.set['git-ssh-server']['base_path'] = base_path # not needed
-    chef_runner.node.set['git']['server']['base_path'] = 'base_path_ignored'
-    chef_runner.converge(described_recipe)
-    expect(chef_runner.node['git-ssh-server']['base_path']).to eq(base_path)
+    node.set['git-ssh-server']['base_path'] = base_path # not needed
+    node.set['git']['server']['base_path'] = 'base_path_ignored'
+    chef_run
+    expect(node['git-ssh-server']['base_path']).to eq(base_path)
   end
 
   it 'creates git user' do
-    expect(chef_run).to create_user('git').with(
-      :comment => 'Git repository management user',
-      :home => base_path,
-      :shell => '/usr/bin/git-shell',
-      :system => true
-    )
+    expect(chef_run).to create_user('git')
+      .with_comment('Git repository management user')
+      .with_home(base_path)
+      .with_shell('/usr/bin/git-shell')
+      .with_system(true)
   end
 
   it 'creates git group' do
-    expect(chef_run).to create_group('git').with(
-      :members => [ 'git' ],
-      :system => true,
-      :append => true
-    )
+    expect(chef_run).to create_group('git')
+      .with_members(%w(git))
+      .with_system(true)
+      .with_append(true)
   end
 
   it 'creates base path directory' do
-    expect(chef_run).to create_directory(base_path).with(
-      :owner => 'git',
-      :group => 'git',
-      :mode => '00750',
-      :recursive => true
-    )
+    expect(chef_run).to create_directory(base_path)
+      .with_owner('git')
+      .with_group('git')
+      .with_mode('00750')
+      .with_recursive(true)
   end
 
   it 'creates git-shell-command directory' do
-    expect(chef_run).to create_directory("#{base_path}/git-shell-commands").with(
-      :owner => 'git',
-      :group => 'git',
-      :mode => '00750',
-      :recursive => true
-    )
+    expect(chef_run).to create_directory("#{base_path}/git-shell-commands")
+      .with_owner('git')
+      .with_group('git')
+      .with_mode('00750')
+      .with_recursive(true)
   end
 
   it 'creates a README.md file' do
-    expect(chef_run).to create_template("#{base_path}/README.md").with(
-      :owner => 'git',
-      :group => 'git',
-      :mode => '00640'
-    )
+    expect(chef_run).to create_template("#{base_path}/README.md")
+      .with_owner('git')
+      .with_group('git')
+      .with_mode('00640')
   end
 end

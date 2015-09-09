@@ -28,17 +28,22 @@ Please, [let us know](https://github.com/zuazo/git-ssh-server-cookbook/issues/ne
 ## Required Cookbooks
 
 * [git](https://supermarket.chef.io/cookbooks/git)
+* [ssh_authorized_keys](https://supermarket.chef.io/cookbooks/ssh_authorized_keys)
+
+## Required Applications
+
+* Ruby `1.9.3` or higher.
 
 Attributes
 ==========
 
 | Attribute                             | Default                | Description                    |
 |:--------------------------------------|:-----------------------|:-------------------------------|
-| `node['git-ssh-server']['base_path']` | *calculated*           | Git repository base path
-| `node['git-ssh-server']['user']`      | `'git'`                | System user used to manage the repositories
-| `node['git-ssh-server']['group']`     | `'git'`                | System group used to manage the repositories
-| `node['git-ssh-server']['shell']`     | `'/usr/bin/git-shell'` | Git user shell
-| `node['git-ssh-server']['hostname']`  | *calculated*           | Machine hostname, used only in the README template
+| `node['git-ssh-server']['base_path']` | *calculated*           | Git repository base path.
+| `node['git-ssh-server']['user']`      | `'git'`                | System user used to manage the repositories.
+| `node['git-ssh-server']['group']`     | `'git'`                | System group used to manage the repositories.
+| `node['git-ssh-server']['shell']`     | `'/usr/bin/git-shell'` | Git user shell.
+| `node['git-ssh-server']['hostname']`  | *calculated*           | Machine hostname, used only in the README template.
 
 Recipes
 =======
@@ -62,9 +67,9 @@ Creates a new bare repository.
 
 | Parameters             | Default         | Description                    |
 |:-----------------------|:----------------|:-------------------------------|
-| name                   | *resource name* | Repository name
-| base_path              | *calculated*    | Git repository base path
-| add_update_server_hook | false           | Create the post-update-hook with `exec git update-server-info` [true/false]
+| name                   | *resource name* | Repository name.
+| base_path              | *calculated*    | Git repository base path.
+| add_update_server_hook | `false`         | Create the post-update-hook with `exec git update-server-info` (`true` or `false`).
 
 ### git_ssh_server_bare Example
 
@@ -87,10 +92,10 @@ Grant access to a SSH key to all the repositories.
 
 | Parameters | Default         | Description              |
 |:-----------|:----------------|:-------------------------|
-| keyname    | *resource name* | SSH key name
-| key        | *required*      | SSH RSA public key value
-| keytype    | `'ssh-rsa'`     | SSH RSA key type
-| base_path  | *calculated*    | Git repository base path
+| keyname    | *resource name* | SSH key name.
+| key        | *required*      | SSH RSA public key value.
+| keytype    | `'ssh-rsa'`     | SSH RSA key type.
+| base_path  | *calculated*    | Git repository base path.
 
 ### git_ssh_server_ssh_key Example
 
@@ -114,13 +119,26 @@ git_ssh_server_bare 'my-library-two'
 git_ssh_server_bare 'my-webapp'
 
 git_ssh_server_ssh_key 'my-laptop-key' do
-  key 'AAAAB3NzaC1yc2EAAAABIwAAAQEAv8lgaVb1BtGTLZG2cwc8WQF/X2Mxcuu/UPxN3yT6VQuFa6zl/LbSMND9OADS6ULw6p0hnWPnRDA8rSJvdcYO7pTSJOclScEuIMm4Nx8c3uhfePF/o39QPhH3WAyee/SFDay430Y11W5ZuOXuZ7Wb2PQEPUaQxs9k/MUHjIIcNLS7qG/FP5IGAb0df9KkAnSGXTgZ/Z9Xh+4mAkoBkXIr99oZsphF/PcxcVQfq4V6dTg81LUPLfaSj6U8gXmjRpRYNgk5uEdci7loKDmv1EPKhzwsJIEp9wxpAJqel5sezHaYN5w3zplbr7UY1+YuEBn2jnYhzbdBZcVDmL1D5F/G+Q=='
+  key(
+    'AAAAB3NzaC1yc2EAAAADAQABAAABAQDjvOJeZHLa15iajIat6YxtDM2BtVwxZ/WMIcGh6NeQB'\
+    'I1Nhs4nIpHRCC5bOG4Pg5d6QYaFLDXHx7rHWzprBMi7XuBANGUKESFemByF2DU7hO60/DhA+K'\
+    'mzeEkCVIqGTh+G7GFucjNGvJgles7MjkOenIc7Xb+OXKcPdTRpQslwJErsIqb1EfRT+8kZvVn'\
+    '9d9RBS9grWkiOz+d+SVU/D6S40st2f4VDE5NHxcA9/U0vT7tLvC+G6lNJ4+w8M1jpvTDosKeq'\
+    'yfqQnucf61VWc6ClGh8p88WTSZ081jGB0OkM+nFBsOtzJ+Gmy/N2I+eJGjTykAC7MvLPUsQjA'\
+    '0KYsZRL'
+  )
 end
 
 git_ssh_server_ssh_key 'another-developer' do
-  key 'AAAAB3NzaC1yc2EAAAABIwAAAQEAqFEaEEv9Fx+6Qv8LPoY+e9rsvaARGJJbvc7y2Tl73zoA6rB7VTxqoyV6mhG+ozRiB4i5g5andBCSDjDXPS0ycUQmiR2OrLZDUpf3uUhaeOO1SFjIbUyFdqy1MBkcmkDzBtXJ/qgn/ydUX59lT00AoPY4URVMt13uaI6GCWrsxRFX+Hxk5prVjoUqJQ7iSidXJ9CHksKTamgn3Ywc9w1MMYcegB+NVg0GsHDZMyq1PxFKGtqNS2PriQfoUrva76rolTej2rbnyH9drZZNi8lsxZ/Xi8ObjT68gc3OfswA64DRhQuN+aQT4bBK1xU+2AE88P9L2LSEYkekTzt7CElqrw=='
+  key(
+    'AAAAB3NzaC1yc2EAAAADAQABAAABAQC75j5iuOWD2Xqw/hKVoJ32n0r6jRjlBofjtEkFDknZp'\
+    'CMG3whdy64FGNvYYgoajLOc/TyhF+ntt/Go3CrasxNhEusnj6HQu57d0nAnnTleDBHLgcCxFW'\
+    'QrGTXpop+JziHYXpZHT5bvMV0zfw0C6ezheUnlXlA5+2JNZx3JwhfZqu0L18iwOdWzWbL3zta'\
+    'D84l0e030JTyg6SP/feXvM5bnQpySCWnqk6L2yzhXQh3tpg95l/8srSE1tuRwgWx4gW2k0E9x'\
+    'gWtDwcx4lsskMdti6vZ/aM4Ll/jTFAO0hmXZEDnsSr0NEuwm/n8jvN9qwHPLBsk2YWf57VPKq'\
+    'VQ2rYLx'
+  )
 end
-
 ```
 
 Don't forget to include the `git-ssh-server` cookbook as a dependency in the metadata.

@@ -32,8 +32,8 @@ describe 'SSH Keys' do
     it { should be_mode 600 }
     it { should be_owned_by 'git' }
     it { should be_grouped_into 'git' }
-    its(:content) { should match /^ssh-rsa\s+.*mzeEkCVIqG.*\s+me@foobar\.com$/ }
-    its(:content) { should match /^ssh-rsa\s+.*QrGTXpop.*\s+you@foobar\.com$/ }
-    its(:content) { should match /^ssh-dss\s+.*I4eJiJIBvF8yMLR.*\s+superboss$/ }
+    its(:content) { should match(/^ssh-rsa\s+.*mzeEkCVIq.*\s+me@foobar\.com$/) }
+    its(:content) { should match(/^ssh-rsa\s+.*QrGTXpo.*\s+you@foobar\.com$/) }
+    its(:content) { should match(/^ssh-dss\s+.*I4eJiJIBvF8yML.*\s+superboss$/) }
   end
 end
