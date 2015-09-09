@@ -13,15 +13,19 @@ Requirements
 
 This cookbook has been tested on the following platforms:
 
-* Amazon
+* Amazon Linux
 * Arch
 * CentOS
 * Debian
 * Fedora
 * FreeBSD
+* OpenSUSE
+* Oracle Linux
 * RedHat
-* Scientific
+* Scientific Linux
+* SUSE
 * Ubuntu
+* Windows
 
 Please, [let us know](https://github.com/zuazo/git-ssh-server-cookbook/issues/new?title=I%20have%20used%20it%20successfully%20on%20...) if you use it successfully on any other platform.
 
