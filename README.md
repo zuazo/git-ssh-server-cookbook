@@ -3,7 +3,7 @@ Git SSH Server Cookbook
 [![Cookbook Version](https://img.shields.io/cookbook/v/git-ssh-server.svg?style=flat)](https://supermarket.chef.io/cookbooks/git-ssh-server)
 [![GitHub Source](https://img.shields.io/badge/source-GitHub-blue.svg?style=flat)](https://github.com/zuazo/git-ssh-server-cookbook)
 [![Dependency Status](http://img.shields.io/gemnasium/zuazo/git-ssh-server-cookbook.svg?style=flat)](https://gemnasium.com/zuazo/git-ssh-server-cookbook)
-[![Build Status](http://img.shields.io/travis/zuazo/git-ssh-server-cookbook.svg?style=flat)](https://travis-ci.org/zuazo/git-ssh-server-cookbook)
+[![Build Status](http://img.shields.io/travis/zuazo/git-ssh-server-cookbook/1.0.0.svg?style=flat)](https://travis-ci.org/zuazo/git-ssh-server-cookbook)
 
 [Chef](https://www.chef.io/) cookbook to set up a basic git repository container to be accessed via SSH.
 
